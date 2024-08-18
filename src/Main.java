@@ -5,6 +5,7 @@
  */
 
 import java.util.Scanner;
+import java.util.Random;
 import java.util.*;
 
 public class Main {
@@ -15,6 +16,9 @@ public class Main {
 
         // Boolean for loop purposes
         boolean count  = true;
+
+        // List for the temperatures
+        List<Integer> tempList = new ArrayList<>();
 
         // This is the main loop similar to a game loop where it iterated the program
         while (count) {
@@ -27,6 +31,7 @@ public class Main {
                     "\n (5) Exit");
 
             int home = scanner.nextInt();
+
 
             switch (home){
                 case 1:
@@ -87,11 +92,12 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println( readTemps( new ArrayList<Integer>() ) );
+                    tempList = readTemps( new ArrayList<Integer>() );
+                    System.out.println(tempList);
                     break;
 
                 case 4:
-                    readTemps( new ArrayList<Integer>() );
+                    printTemps( tempList );
                     break;
 
                 case 5:
@@ -175,6 +181,11 @@ public class Main {
         return true;
     }
 
+    /**
+     * Received a list of integers that will be filled with the temps provided by the user.
+     * @param tempList List with the temperatures
+     * @return The same list but with the temps
+     */
     public static List<Integer> readTemps ( List<Integer> tempList ) {
 
         int newTemp = 0;
@@ -193,9 +204,51 @@ public class Main {
 
     }
 
+    /**
+     * Utterly unnecessary, a waste of code and computation time, this same function could be implemented in line
+     * without a method, but I don't want to risk not getting the points just cause I was feeling rebellious
+     * @param tempList The list that is going to be used to display the information
+     */
     public static void printTemps( List<Integer> tempList ) {
 
+        System.out.println("The list of temperatures is: " + tempList
+                            + "\n The max is " + maxTemps(tempList)
+                            + "\n The min is " + minTemps(tempList)
+                            + "\n The average is " + avgTemps(tempList));
 
+    }
+
+    public static int minTemps( List<Integer> tempList ) {
+
+        int pivot = tempList.get(0);
+
+        for (int i = 0; i < tempList.size(); i++) {
+            if (tempList.get(i) < pivot)
+                pivot = tempList.get(i);
+        }
+
+        return pivot;
+    }
+
+    public static int maxTemps( List<Integer> tempList ) {
+
+        int pivot = tempList.get(0);
+
+        for (int i = 0; i < tempList.size(); i++) {
+            if (tempList.get(i) > pivot)
+                pivot = tempList.get(i);
+        }
+
+        return pivot;
+    }
+
+    public static int avgTemps( List<Integer> tempList ) {
+
+        int sum = 0;
+
+        for (Integer integer : tempList) sum += integer;
+
+        return sum / tempList.size();
 
     }
 
