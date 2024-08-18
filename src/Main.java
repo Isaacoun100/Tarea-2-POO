@@ -46,7 +46,7 @@ public class Main {
 
                 switch (operation){
                     case 1:
-                        //TODO implement function to print the matrix
+                        printMatrix(matrix);
                     case 2:
                         //TODO implement function to check if its diagonal
                     case 3:
@@ -78,14 +78,28 @@ public class Main {
 
         int[][] matrix = new int[row][column];
 
-        for (int i = 0; i < column; i++) {
-            for (int j = 0; j < row; j++){
-                System.out.println("Please enter value for row:" + j + " , column:" + i);
-                matrix[j][i] = scanner.nextInt();
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++){
+                System.out.println("Please enter value for row:" + i + " , column:" + j);
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
         return matrix;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+
+            System.out.print("[ ");
+
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+
+            System.out.print(" ] \n");
+
+        }
     }
 
 }
