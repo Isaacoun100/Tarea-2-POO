@@ -88,6 +88,14 @@ public class Main {
 
                 case 3:
                     System.out.println( readTemps( new ArrayList<Integer>() ) );
+                    break;
+
+                case 4:
+                    readTemps( new ArrayList<Integer>() );
+                    break;
+
+                case 5:
+                    System.out.println("Operation not valid, please try again");
             }
 
         }
@@ -158,8 +166,8 @@ public class Main {
         if(listNumber.charAt(0)=='-')
             listNumber.deleteCharAt(0);
 
-        for (int i = 0; i < (listNumber.length() / 2); i++) {
-            if(listNumber.charAt(i)!=listNumber.charAt(listNumber.length()-i)){
+        for (int i = 0; i < (listNumber.length())/2; i++) {
+            if(listNumber.charAt(i)!=listNumber.charAt(listNumber.length()-(i+1))){
                 return false;
             }
         }
@@ -175,9 +183,19 @@ public class Main {
         while( newTemp != 999 ) {
             System.out.println("Please type the new value or enter 999 to finish");
             newTemp = scanner.nextInt();
+
+            if (newTemp != 999)
+                tempList.add(newTemp);
+
         }
 
         return tempList;
+
+    }
+
+    public static void printTemps( List<Integer> tempList ) {
+
+
 
     }
 
