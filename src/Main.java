@@ -5,7 +5,6 @@
  */
 
 import java.util.Scanner;
-import java.util.Random;
 import java.util.*;
 
 public class Main {
@@ -128,6 +127,10 @@ public class Main {
         return matrix;
     }
 
+    /**
+     * Prints the received matrix into the console
+     * @param matrix The matrix to check
+     */
     public static void printMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
 
@@ -165,6 +168,13 @@ public class Main {
 
     }
 
+    /**
+     * Checks if the provided number is a palindrome, the fastest way I could find was converting the number into a
+     * String builder which I can access value per value, absolutely inefficient, and I'm sure using some sort of
+     * formula is better, but I don't feel like doing it.
+     * @param number The value to check
+     * @return A boolean value depending on if is or not a palindrome
+     */
     public static boolean isPalindrome(int number){
 
         StringBuilder listNumber = new StringBuilder(String.valueOf(number));
@@ -218,6 +228,11 @@ public class Main {
 
     }
 
+    /**
+     * Provides the minimum value of a list
+     * @param tempList The list to check
+     * @return The minimum value
+     */
     public static int minTemps( List<Integer> tempList ) {
 
         int pivot = tempList.get(0);
@@ -230,6 +245,11 @@ public class Main {
         return pivot;
     }
 
+    /**
+     * Provides the max value of a list
+     * @param tempList The list to check
+     * @return The maximum value
+     */
     public static int maxTemps( List<Integer> tempList ) {
 
         int pivot = tempList.get(0);
@@ -242,6 +262,11 @@ public class Main {
         return pivot;
     }
 
+    /**
+     * Provides the average value of a list
+     * @param tempList The list to check
+     * @return The average value
+     */
     public static int avgTemps( List<Integer> tempList ) {
 
         int sum = 0;
